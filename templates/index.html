@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Project</title>
+</head>
+<body>
+    <div>
+        <h1> Crop Prediction </h1>
+        <hr>
+    </div>
+
+    {% if predict is not None %}
+        <h3> Prediction : {{ predict }} </h3>
+    {% endif %}
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="temperature">temperature</label>
+                <input type="number" name="temperature" id="temperature">
+            </div>
+            <br>
+            <div>
+                <label for="humidity">humidity</label>
+                <input type="number" name="humidity" id="humidity">
+            </div>
+            <br>
+            <div>
+                <label for="ph">ph</label>
+                <input type="number" name="ph" id="ph">
+            </div>
+            <br>
+            <div>
+                <label for="water_avalilablity">water_avalilablity</label>
+                <input type="number" name="water_avalilablity" id="water_avalilablity">
+            </div>
+            <br>
+             <div>
+                <label for="water_avalilablity">season</label>
+                <select name="season" id="season">
+                    <option value="0.0">rainy</option>
+                    <option value="1.0">winter</option>
+                    <option value="2.0">spring</option>
+                    <option value="3.0">summer</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <button type="submit"> Predict Suitable Crop </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
